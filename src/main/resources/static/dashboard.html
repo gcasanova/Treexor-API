@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Treexor Backend Demo</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+
+<body style="padding: 5% 10%">
+	<div id="welcomeMessage"></div>
+	<button id="logout">Logout</button>
+
+	<section>
+		<form name="discountCodeCreation" id="discountCodeCreationForm"
+			accept-charset="utf-8">
+			<ul>
+				<li><label for="name">Pharmacy Name</label> <input type="text"
+					name="name" placeholder="name" required></li>
+				<li><input type="submit" value="Create"></li>
+			</ul>
+		</form>
+	</section>
+
+	<section>
+		<form name="discountCodeVerification"
+			id="discountCodeVerificationForm" accept-charset="utf-8">
+			<ul>
+				<li><label for="code">Discount Code</label> <input type="text"
+					name="code" placeholder="code" required></li>
+				<li><input type="submit" value="Submit"></li>
+			</ul>
+		</form>
+	</section>
+
+	<section>
+		<hx>Discount Codes</hx>
+		<ul id="discountCodes"></ul>
+	</section>
+
+	<section>
+		<hx>Monthly Report</hx>
+		<form name="report" id="reportForm" accept-charset="utf-8">
+			<ul>
+				<li><label for="email">Email</label> <input type="email"
+					name="email" placeholder="email" required></li>
+				<li><input type="submit" value="Send"></li>
+			</ul>
+		</form>
+	</section>
+
+	<!-- jQuery -->
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<!-- Main JavaScript -->
+	<script src="js/main.js" type="text/javascript"></script>
+	<!-- Dasboard JavaScript -->
+	<script src="js/dashboard.js" type="text/javascript"></script>
+</body>
+
+</html>
