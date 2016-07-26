@@ -67,6 +67,13 @@
 			<version>1.0</version>
 		</dependency>
 
+		<!-- Apache commons lang -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+
 		<!-- Embedded Redis -->
 		<dependency>
 			<groupId>com.github.kstyrc</groupId>
@@ -81,9 +88,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

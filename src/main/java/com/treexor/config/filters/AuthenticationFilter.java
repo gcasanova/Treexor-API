@@ -25,7 +25,15 @@ public class AuthenticationFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+            throws IOException, ServletException {
+
+        // allow unauthenticated access to auth register / login endpoints
+        String path = ((HttpServletRequest) servletRequest).getRequestURI();
+        if (path.matches("\\/api\\/v\\d+\\/auth\\/register") || path.matches("\\/api\\/v\\d+\\/auth\\/login")) {
+            filterChain.doFilter(servletRequest, servletResponse); // Just continue chain.
+            return;
+        }
 
         String id = ((HttpServletRequest) servletRequest).getHeader("Id");
         String token = ((HttpServletRequest) servletRequest).getHeader("Token");

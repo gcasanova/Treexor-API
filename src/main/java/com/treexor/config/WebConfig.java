@@ -1,7 +1,5 @@
 package com.treexor.config;
 
-import java.util.ArrayList;
-
 import javax.servlet.Filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +32,13 @@ public class WebConfig extends WebMvcAutoConfiguration {
 
     @Bean
     public ObjectMapper objectMapper() {
-        return new ObjectMapper().findAndRegisterModules().setVisibility(PropertyAccessor.ALL, Visibility.NONE).setVisibility(PropertyAccessor.FIELD, Visibility.ANY).configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-                .configure(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE, false).configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false).setSerializationInclusion(Include.NON_NULL).setSerializationInclusion(Include.NON_EMPTY);
+        return new ObjectMapper().findAndRegisterModules().setVisibility(PropertyAccessor.ALL,
+                Visibility.NONE).setVisibility(PropertyAccessor.FIELD, Visibility.ANY).configure(
+                        SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false).configure(
+                                DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE, false).configure(
+                                        DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
+                                        false).setSerializationInclusion(Include.NON_NULL).setSerializationInclusion(
+                                                Include.NON_EMPTY);
     }
 
     @Bean
@@ -70,13 +73,6 @@ public class WebConfig extends WebMvcAutoConfiguration {
         AuthenticationFilter authFilter = new AuthenticationFilter(template);
         registrationBean.setFilter(authFilter);
         registrationBean.setOrder(3);
-
-        ArrayList<String> urlPatterns = new ArrayList<String>();
-        urlPatterns.add("*/logout");
-        urlPatterns.add("*/events/save");
-        urlPatterns.add("*/events/query");
-
-        registrationBean.setUrlPatterns(urlPatterns);
         return registrationBean;
     }
 }
